@@ -7,6 +7,10 @@ import numpy as np
 import random
 
 
+
+# To maintain the aspect ratio and at 
+# the same time allow maximum reduction in the 
+# in matrix size, the gcd is computed 
 def gcd(x, y): 
    while(y): 
        x, y = y, x % y 
@@ -18,7 +22,7 @@ if rank == 0 :
 	B = np.random.rand(3,6)
 	rows = np.shape(A)[0]
 	cols = np.shape(B)[1]
-	print(gcd(rows,cols))
+	#print(gcd(rows,cols))
 	k = np.shape(A)[1]
 	#Sending the shape of the array to different processors
 	for i in range(nProcs):
@@ -27,8 +31,8 @@ if rank == 0 :
 
 rows = comm.recv(source = 0)
 cols = comm.recv(source = 0)
-iprocs = 2
-jprocs = 3
+iprocs = int(rows/gcd(rows,cols))
+jprocs = int(cols/gcd(rows,cols))
 iLength = int(rows/iprocs)
 jLength = int(cols/jprocs)
 
