@@ -7,11 +7,18 @@ import numpy as np
 import random
 
 
+def gcd(x, y): 
+   while(y): 
+       x, y = y, x % y 
+  
+   return x 
+
 if rank == 0 :
-	A = np.random.rand(12,4)
-	B = np.random.rand(4,6)
+	A = np.random.rand(4,3)
+	B = np.random.rand(3,6)
 	rows = np.shape(A)[0]
 	cols = np.shape(B)[1]
+	print(gcd(rows,cols))
 	k = np.shape(A)[1]
 	#Sending the shape of the array to different processors
 	for i in range(nProcs):
@@ -20,7 +27,7 @@ if rank == 0 :
 
 rows = comm.recv(source = 0)
 cols = comm.recv(source = 0)
-iprocs = 6
+iprocs = 2
 jprocs = 3
 iLength = int(rows/iprocs)
 jLength = int(cols/jprocs)
