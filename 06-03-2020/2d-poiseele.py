@@ -21,7 +21,7 @@ ti = 0
 tf = 50
 dt = 0.1
 alpha=  1
-cfl = alpha*dt/(dx^2) #should be less than or equal to .5 for convergence
+cfl = alpha*dt/(dx**2) #should be less than or equal to .5 for convergence
 nt = int(((tf - ti) / dt) + 1)
 
 

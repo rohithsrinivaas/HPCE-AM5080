@@ -1,0 +1,13 @@
+ncore = 4 //parallel
+Phase field// Dendrite
+domain		Simulation Time(s)		Program Time(s)
+150			600					1304.1847820000003
+300			600					3769.8334579999996
+600			600					13429.295004
+
+
+Phase field// Spinodal
+domain		Simulation Time(s)		Program Time(s)
+150			600						204.738777
+300			600						214.088479
+600			600						431.54621000000003
